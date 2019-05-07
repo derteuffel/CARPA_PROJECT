@@ -14,6 +14,6 @@ import java.util.List;
 @Repository
 public interface CourrierRepository extends JpaRepository<Courrier, Long> {
     List<Courrier> findByUsers_userId(Long userId);
-    @Query("select c from Courrier as c join c.status cs where cs.statusId=:id order by c.courierId desc")
+    @Query("select c from Courrier as c join c.status cs where cs.statusId=:id order by c.courrierId desc")
     List<Courrier> findAllByStatus(@Param("id") Long statusId);
 }

@@ -18,7 +18,7 @@ public class Courrier implements Serializable{
 
     @Id
     @GeneratedValue
-    private Long courierId;
+    private Long courrierId;
     @Column
     @NotEmpty
     @Size(min = 6)
@@ -38,13 +38,13 @@ public class Courrier implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date dateReception;
     @Column
-    private String typeCourier;
+    private String typeCourrier;
     @Column
     private String fileType;
     @Column
     private ArrayList<String> pieces= new ArrayList<>();
 
-    @ManyToMany(mappedBy = "couriers")
+    @ManyToMany(mappedBy = "courriers")
     private Set<User> users;
 
     @ManyToOne
@@ -55,7 +55,7 @@ public class Courrier implements Serializable{
 
     public Courrier(@NotEmpty @Size(min = 6) String reference, String objet, String emetteur, String recepteur,
                     String order_number, Date dateEnvoi, Date dateReception, String fileType, ArrayList<String> pieces,
-                    Set<User> users, Status status, String typeCourier) {
+                    Set<User> users, Status status, String typeCourrier) {
         this.reference = reference;
         this.objet = objet;
         this.emetteur = emetteur;
@@ -67,15 +67,15 @@ public class Courrier implements Serializable{
         this.pieces = pieces;
         this.users = users;
         this.status=status;
-        this.typeCourier = typeCourier;
+        this.typeCourrier = typeCourrier;
     }
 
-    public Long getCourierId() {
-        return courierId;
+    public Long getCourrierrId() {
+        return courrierId;
     }
 
-    public void setCourierId(Long courierId) {
-        this.courierId = courierId;
+    public void setCourrierId(Long courierId) {
+        this.courrierId = courrierId;
     }
 
     public String getReference() {
@@ -166,11 +166,11 @@ public class Courrier implements Serializable{
         this.status = status;
     }
 
-    public String getTypeCourier() {
-        return typeCourier;
+    public String getTypeCourrier() {
+        return typeCourrier;
     }
 
-    public void setTypeCourier(String typeCourier) {
-        this.typeCourier = typeCourier;
+    public void setTypeCourrier(String typeCourier) {
+        this.typeCourrier = typeCourier;
     }
 }

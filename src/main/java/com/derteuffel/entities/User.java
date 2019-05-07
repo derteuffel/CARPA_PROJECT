@@ -48,7 +48,7 @@ public class User implements Serializable {
     private String resetToken;
 
     @ManyToMany
-    @JoinTable(name = "user_courier", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "courier_id"))
+    @JoinTable(name = "user_courrier", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "courrier_id"))
     private Set<Courrier> courriers;
     @ManyToMany
     @JoinTable(name = "user_project", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))

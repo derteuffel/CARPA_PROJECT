@@ -14,11 +14,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 </head>
 <body>
-<div th:replace="fragments/header.html:: nav"></div>
-<br>
-<table id="courrierTable" class="table table-bordered table-hover table-lg">
-    <thead class="thead-light">
-    <tr>
+
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="col-sm-6 col-lg-6 col-md-6">
+                <a th:href="@{/courier/form}" class="btn btn-primary nBtn" style="border-radius: 50%; position:fixed;bottom:1rem;right:8%;" ><i class="fa fa-plus"></i></a>
+            </div>
+        </div>
+    </div>
+    <table  class="table text-center table-hover  table-lg display" id="courrier">
+        <thead class="text-white bg-secondary">
         <th>Numero d'ordre</th>
         <th>Reference</th>
         <th>Objet</th>
@@ -28,16 +33,20 @@
         <th>Date d'envoi</th>
         <th>Date de Reception</th>
         <th>Actions</th>
-    </tr>
-    </thead>
-    <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="row">
-            <div class="col-sm-6 col-lg-6 col-md-6">
-                <a th:href="@{/courier/form}" class="btn btn-primary nBtn" style="border-radius: 50%; position:fixed;bottom:1rem;right:8%;" ><i class="fa fa-plus"></i></a>
-            </div>
-        </div>
-    </div>
-</table>
+        </thead>
+
+        <tbody>
+          <tr th:each="courrier: ${courriers}">
+              <td th:text="${courrier.order_number}"></td>
+              <td th:text="${courrier.reference}"></td>
+              <td th:text="${courrier.objet}"></td>
+              <td th:text="${courrier.emetteur}"></td>
+              <td th:text="${courrier.recepteur}"></td>
+              <td th:text="${courrier.dateEnvoi}"></td>
+              <td th:text="${courrier.dateReception}"></td>
+          </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
