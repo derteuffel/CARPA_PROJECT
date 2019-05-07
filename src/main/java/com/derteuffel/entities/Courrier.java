@@ -14,7 +14,7 @@ import java.util.Set;
  * Created by derteuffel on 06/05/2019.
  */
 @Entity
-public class Courier implements Serializable{
+public class Courrier implements Serializable{
 
     @Id
     @GeneratedValue
@@ -50,12 +50,12 @@ public class Courier implements Serializable{
     @ManyToOne
     private Status status;
 
-    public Courier() {
+    public Courrier() {
     }
 
-    public Courier(@NotEmpty @Size(min = 6) String reference, String objet, String emetteur, String recepteur,
-                   String order_number, Date dateEnvoi, Date dateReception, String fileType, ArrayList<String> pieces,
-                   Set<User> users, Status status, String typeCourier) {
+    public Courrier(@NotEmpty @Size(min = 6) String reference, String objet, String emetteur, String recepteur,
+                    String order_number, Date dateEnvoi, Date dateReception, String fileType, ArrayList<String> pieces,
+                    Set<User> users, Status status, String typeCourier) {
         this.reference = reference;
         this.objet = objet;
         this.emetteur = emetteur;

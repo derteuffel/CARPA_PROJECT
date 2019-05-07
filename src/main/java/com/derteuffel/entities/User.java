@@ -11,6 +11,7 @@ import java.util.Set;
  * Created by derteuffel on 06/05/2019.
  */
 @Entity
+@Table(name="\"User\"")
 public class User implements Serializable {
     @Id
     @GeneratedValue
@@ -48,7 +49,7 @@ public class User implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "user_courier", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "courier_id"))
-    private Set<Courier> couriers;
+    private Set<Courrier> courriers;
     @ManyToMany
     @JoinTable(name = "user_project", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
     private Set<Project> projects;
@@ -59,7 +60,7 @@ public class User implements Serializable {
     public User(@NotEmpty @Size(min = 4) String nom, @NotEmpty @Size(min = 4) String prenom,
                 @NotEmpty @Size(min = 4) String matricule, @NotEmpty @Size(min = 4) String telephone,
                 @NotEmpty @Email @Size(min = 6) String email, @NotEmpty @Size(min = 6) String password,
-                String avatar, Boolean active, String resetToken, Set<Courier> couriers, Set<Project> projects) {
+                String avatar, Boolean active, String resetToken, Set<Courrier> courriers, Set<Project> projects) {
         this.nom = nom;
         this.prenom = prenom;
         this.matricule = matricule;
@@ -69,7 +70,7 @@ public class User implements Serializable {
         this.avatar = avatar;
         this.active = active;
         this.resetToken = resetToken;
-        this.couriers = couriers;
+        this.courriers = courriers;
         this.projects = projects;
     }
 
@@ -153,12 +154,12 @@ public class User implements Serializable {
         this.resetToken = resetToken;
     }
 
-    public Set<Courier> getCouriers() {
-        return couriers;
+    public Set<Courrier> getCourriers() {
+        return courriers;
     }
 
-    public void setCouriers(Set<Courier> couriers) {
-        this.couriers = couriers;
+    public void setCourriers(Set<Courrier> courriers) {
+        this.courriers = courriers;
     }
 
     public Set<Project> getProjects() {

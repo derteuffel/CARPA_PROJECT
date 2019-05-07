@@ -1,7 +1,7 @@
 package com.derteuffel.controller;
 
-import com.derteuffel.entities.Courier;
-import com.derteuffel.repository.CourierRepository;
+import com.derteuffel.entities.Courrier;
+import com.derteuffel.repository.CourrierRepository;
 import com.derteuffel.repository.StatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,30 +17,31 @@ import java.util.List;
 /**
  * Created by derteuffel on 06/05/2019.
  */
+
 @Controller
-@RequestMapping("/courier")
-public class CourierController {
+@RequestMapping("/courrier")
+public class CourrierController {
 
     @Autowired
-    private CourierRepository courierRepository;
+    private CourrierRepository courrierRepository;
     @Autowired
     private StatusRepository statusRepository;
 
-    @GetMapping("/couriers")
+    @GetMapping("/courriers")
     public String all(Model model){
-        List<Courier> couriers=courierRepository.findAll();
-        model.addAttribute("couriers", couriers);
-        return "courier/couriers";
+        List<Courrier> courriers = courrierRepository.findAll();
+        model.addAttribute("courriers", courriers);
+        return "courrier/courriers";
     }
 
     @GetMapping("/form")
     public String form(Model model){
-        model.addAttribute("courier",new Courier());
+        model.addAttribute("courrier",new Courrier());
         model.addAttribute("statuses",statusRepository.findAll());
-        return "courier/form";
+        return "courrier/form";
     }
 
     public String save(Model model, Errors errors, @RequestParam("files") MultipartFile[] files){
-
+       return null;
     }
 }

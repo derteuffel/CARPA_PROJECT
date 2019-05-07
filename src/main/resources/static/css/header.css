@@ -1,0 +1,8 @@
+.bg-success{
+    color: #FFFFFF;
+    background: #3A9B83 !important;
+}
+.bg-success .navbar-brand,
+.bg-success #navbarText {
+    color: #FFFFFF;;
+}

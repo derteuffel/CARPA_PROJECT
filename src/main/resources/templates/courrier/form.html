@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>formulaire d'ajout d'un courrier</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/jquery-ui/1.12.1/jquery-ui.theme.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <script type="text/javascript" th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.1/js/bootstrap.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header.html:: nav"></div>
+<div class=" container ">
+    <div class=" ">
+        <h2>Formulaire d'un courrier</h2>
+        <form method="post" th:object="${courrier}" th:action="@{/courrier/save}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="order_number">Numero d'ordre:</label>
+                <input type="text" class="form-control" id="order_number" placeholder="Enter le numero d'ordre" th:field="*{order_number}">
+            </div>
+            <div class="form-group">
+                <span th:if="${#fields.hasErrors('reference')}" th:errors="*{reference}"></span>
+                <label for="reference">Reference:</label>
+                <input type="text" class="form-control" id="reference" placeholder="" th:field="*{reference}">
+            </div>
+            <div class="form-group">
+                <label for="objet">Objet:</label>
+                <textarea class="form-control" rows="5" id="objet" th:field="*{objet}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="emetteur">Emetteur:</label>
+                <input type="text" class="form-control" id="emetteur" placeholder="Enter emetteur" th:field="*{emetteur}">
+            </div>
+            <div class="form-group">
+                <label for="recepteur">Recepteur:</label>
+                <input type="text" class="form-control" id="recepteur" placeholder="Entrer recepteur" th:field="*{recepteur}">
+            </div>
+            <div class="form-group">
+                <label for="fileType">Type de fichiers a telecharger :</label>
+                <select id="fileType" th:field="*{fileType}" class="form-control">
+                    <option value="DOCUMENT FILES">DOCUMENT FILES</option>
+                    <option value="VIDEO">VIDEO</option>
+                    <option value="AUDIO">AUDIO</option>
+                </select>
+            </div>
+            <p>Charger vos fichiers ici:</p>
+            <div class="custom-file">
+                <input type="file" multiple="" class="form-control-file border" onChange="makeFileList();" id="uploadingFiles" name="uploadingFiles" placeholder="Entrer les fichiers ici">
+                <p>
+                    <strong>Fichiers selectionnées:</strong>
+                </p>
+                <ul id="fileList"><li>Aucun fichier seletionnée</li></ul>
+            </div>
+            <div class="form-group">
+                <label for="dateEnvoi">Date d'envoi:</label>
+                <input type="date" class="form-control" id="dateEnvoi" placeholder="Entrer une date" th:field="*{dateEnvoi}">
+            </div>
+            <div class="form-group">
+                <label for="dateReception">Date de reception:</label>
+                <input type="date" class="form-control" id="dateReception" placeholder="Entrer une date " th:field="*{dateReception}">
+            </div>
+            <div class="from-group">
+                <label for="typeCourier">Type du courrier</label>
+                <input type="date" class="form-control" id="typeCourier" placeholder="Entrer une date " th:field="*{typeCourier}">
+            </div>
+            <button type="submit" class="btn btn-primary " style="width: 100%">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

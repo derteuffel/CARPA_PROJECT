@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Liste des courriers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+</head>
+<body>
+<div th:replace="fragments/header.html:: nav"></div>
+<br>
+<table id="courrierTable" class="table table-bordered table-hover table-lg">
+    <thead class="thead-light">
+    <tr>
+        <th>Numero d'ordre</th>
+        <th>Reference</th>
+        <th>Objet</th>
+        <th>Emetteur</th>
+        <th>Recepteur</th>
+        <!--<th>Fichier</th>-->
+        <th>Date d'envoi</th>
+        <th>Date de Reception</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="col-sm-6 col-lg-6 col-md-6">
+                <a th:href="@{/courier/form}" class="btn btn-primary nBtn" style="border-radius: 50%; position:fixed;bottom:1rem;right:8%;" ><i class="fa fa-plus"></i></a>
+            </div>
+        </div>
+    </div>
+</table>
+
+</body>
+</html>

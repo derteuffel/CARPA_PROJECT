@@ -16,11 +16,11 @@ public class Status implements Serializable {
     @Column
     private Boolean status;
     @OneToMany(mappedBy = "status")
-    private List<Courier> couriers;
+    private List<Courrier> courriers;
 
-    public Status(Boolean status, List<Courier> couriers) {
+    public Status(Boolean status, List<Courrier> courriers) {
         this.status = status;
-        this.couriers = couriers;
+        this.courriers = courriers;
     }
 
     public Status() {
@@ -42,11 +42,11 @@ public class Status implements Serializable {
         this.status = status;
     }
 
-    public List<Courier> getCouriers() {
-        return couriers;
+    public List<Courrier> getCourriers() {
+        return courriers;
     }
 
-    public void setCouriers(List<Courier> couriers) {
-        this.couriers = couriers;
+    public void setCourriers(List<Courrier> courriers) {
+        this.courriers = courriers;
     }
 }
